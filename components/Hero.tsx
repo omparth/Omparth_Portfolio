@@ -132,7 +132,7 @@ export default function Hero() {
                 <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-20 pointer-events-none"></div>
 
                 <Image
-                  src="/assets/omparth.jpg"
+                  src="/assets/Omparth.jpg"
                   alt="Om Parth"
                   fill
                   className="object-cover object-top grayscale-[15%] hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
