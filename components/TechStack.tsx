@@ -25,7 +25,7 @@ export default function TechStack() {
   ];
 
   return (
-    <section id="skills" className="relative py-24 lg:py-40 bg-[#030712] overflow-hidden">
+    <section id="skills" className="relative py-24 lg:py-40 bg-transparent overflow-hidden">
       {/* Background Radial Gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[120px] -z-10" />
 

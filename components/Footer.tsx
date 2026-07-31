@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#030712] pt-24 pb-12 overflow-hidden">
+    <footer className="relative bg-transparent pt-24 pb-12 overflow-hidden">
       {/* Subtle Top Border Gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
 

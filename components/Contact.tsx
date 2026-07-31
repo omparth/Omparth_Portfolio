@@ -54,7 +54,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-24 lg:pt-40 lg:pb-32 bg-[#030712] overflow-hidden">
+    <section id="contact" className="relative py-24 lg:pt-40 lg:pb-32 bg-transparent overflow-hidden">
       {/* Background Gradient Blurs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-[120px] -z-10" />
 

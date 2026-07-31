@@ -1,9 +1,20 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ExternalLink, ArrowRight, Code } from 'lucide-react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { ArrowRight, Code, Sparkles, Gamepad2 } from 'lucide-react';
+import { useRef } from 'react';
 
 export default function Projects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll position inside projects section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 60%', 'end 80%'],
+  });
+
+  const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 20 });
+
   const projects = [
     {
       title: 'Read&Revise LMS',
@@ -13,6 +24,7 @@ export default function Projects() {
       tags: ['Next.js', 'Node.js', 'MongoDB', 'UI/UX'],
       live: 'https://readnrevise.in/',
       color: 'from-indigo-500 to-purple-500',
+      badge: 'LMS Platform',
     },
     {
       title: 'Vendor Management',
@@ -22,97 +34,147 @@ export default function Projects() {
       tags: ['Next.js', 'PostgreSQL', 'Supabase', 'SaaS'],
       live: 'https://www.openmachining.com/',
       color: 'from-cyan-500 to-blue-500',
+      badge: 'Enterprise SaaS',
     },
   ];
 
   return (
-    <section id="projects" className="relative py-24 lg:py-40 bg-[#030712] overflow-hidden">
-      {/* Dynamic Background Glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] -z-10" />
+    <section id="projects" ref={containerRef} className="relative py-24 lg:py-40 bg-transparent overflow-hidden">
+      
+      {/* Subtle Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[140px] -z-10" />
 
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="mb-20">
+        
+        {/* Header Section */}
+        <div className="mb-24 text-center max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-4"
+            className="flex flex-col items-center gap-3"
           >
-            <span className="text-indigo-500 font-mono text-sm uppercase tracking-[0.3em]">Selected Work</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 backdrop-blur-md">
+              <Sparkles size={14} className="text-indigo-400" />
+              <span className="text-xs font-mono tracking-widest text-indigo-300 uppercase">Interactive Timeline</span>
+            </div>
+
             <h2 className="text-5xl lg:text-7xl font-bold text-white tracking-tight">
-              Featured <span className="text-gray-600 italic font-light">Artifacts.</span>
+              Featured <span className="text-gray-500 italic font-light">Artifacts.</span>
             </h2>
           </motion.div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15 }}
-              className="group relative"
-            >
-              <div className="relative overflow-hidden rounded-[2rem] border border-gray-800 bg-[#0a0f1d] p-8 lg:p-12 transition-all duration-500 hover:border-gray-600">
-                {/* Decorative Icon */}
-                <div className={`mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${project.color} text-white shadow-lg shadow-indigo-500/10`}>
-                  <Code size={24} />
-                </div>
+        {/* Timeline Wrapper */}
+        <div className="relative">
+          
+          {/* 1. Center Vertical Background Line (Dark Track) */}
+          <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-white/10 hidden md:block" />
 
-                <div className="space-y-4">
-                  <p className="text-sm font-mono text-gray-500 uppercase tracking-wider">{project.subtitle}</p>
-                  <h3 className="text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-lg text-gray-400 leading-relaxed max-w-sm">
-                    {project.description}
-                  </p>
-                </div>
+          {/* 2. Dynamic Filling Line (Progress) */}
+          <motion.div
+            style={{ scaleY, transformOrigin: 'top' }}
+            className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-cyan-400 hidden md:block"
+          />
 
-                {/* Tech Pills */}
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {project.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="rounded-full border border-gray-800 bg-white/5 px-4 py-1 text-xs font-medium text-gray-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+          {/* 3. Pixel-Style Floating Icon Node (Follows Scroll Progress) */}
+          <motion.div
+            style={{
+              top: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
+            }}
+            className="absolute left-1/2 -translate-x-1/2 z-20 hidden md:flex items-center justify-center -translate-y-1/2"
+          >
+            <div className="relative flex items-center justify-center">
+              {/* Outer Pulsing Glow Halo */}
+              <span className="animate-ping absolute inline-flex h-10 w-10 rounded-full bg-indigo-500/40 opacity-75" />
 
-                {/* Action Button */}
-                <div className="mt-10 pt-8 border-t border-gray-800/50">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-white font-semibold group/link"
-                  >
-                    Explore Live Project 
-                    <ArrowRight size={18} className="transition-transform group-hover/link:translate-x-1" />
-                  </a>
-                </div>
-
-                {/* Background Accent on Hover */}
-                <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-indigo-500/5 blur-3xl transition-opacity opacity-0 group-hover:opacity-100" />
+              {/* Pixel Art Node Container */}
+              <div className="relative h-10 w-10 rounded-full bg-[#0a0f1d] border border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.6)] backdrop-blur-md flex items-center justify-center text-indigo-300">
+                <Gamepad2 size={18} className="animate-pulse text-indigo-400" />
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Projects List */}
+          <div className="space-y-16 md:space-y-28">
+            {projects.map((project, idx) => {
+              const isEven = idx % 2 === 0;
+
+              return (
+                <div key={idx} className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                  
+                  {/* Left Side Content (If Even) or Right Side Content (If Odd) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.1 }}
+                    className={`md:col-span-6 ${
+                      isEven ? 'md:pr-12 lg:pr-16' : 'md:col-start-7 md:pl-12 lg:pl-16'
+                    }`}
+                  >
+                    <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 lg:p-10 transition-all duration-500 hover:border-indigo-500/40 hover:bg-white/[0.04] shadow-2xl">
+                      
+                      {/* Top Header Badge */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br ${project.color} text-white shadow-lg`}>
+                          <Code size={20} />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[11px] font-mono text-indigo-300 bg-indigo-500/10 border border-indigo-500/20">
+                          {project.badge}
+                        </span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="space-y-3">
+                        <p className="text-xs font-mono text-gray-400 uppercase tracking-widest">{project.subtitle}</p>
+                        <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm lg:text-base text-gray-400 leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Tech Pills */}
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-mono text-gray-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Action Button */}
+                      <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-white font-semibold group/link hover:text-indigo-400 transition-colors"
+                        >
+                          Explore Live Project 
+                          <ArrowRight size={16} className="transition-transform group-hover/link:translate-x-1 text-indigo-400" />
+                        </a>
+                      </div>
+
+                      {/* Subtle Glass Glow */}
+                      <div className="absolute -top-12 -right-12 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/20 transition-all" />
+                    </div>
+                  </motion.div>
+
+                  {/* Empty Spacer Column for Desktop Alternate Grid */}
+                  <div className="hidden md:block md:col-span-6" />
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
-        {/* Call to Action for more projects */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-        </motion.div>
       </div>
     </section>
   );

@@ -1,0 +1,379 @@
+TIER 1 — MUST MASTER (CORE STACK)
+1. TYPESCRIPT (VERY IMPORTANT TODAY)
+MUST MASTER
+Basics
+why TypeScript?
+TypeScript vs JavaScript
+static typing
+type safety
+Core Types
+string
+number
+boolean
+array
+tuple
+enum
+any
+unknown
+void
+never
+MOST IMPORTANT
+Interfaces vs Types
+MUST KNOW
+
+When to use:
+
+interface
+type
+Functions
+function typing
+optional params
+default params
+return types
+Objects
+nested object types
+readonly
+optional properties
+Advanced Basics
+union types
+intersection types
+generics
+utility types
+VERY IMPORTANT
+Partial
+Pick
+Omit
+Record
+React + TypeScript
+MUST KNOW
+props typing
+state typing
+event typing
+API response typing
+useRef typing
+MOST ASKED
+interface vs type
+any vs unknown
+generics kya?
+why TypeScript?
+utility types?
+2. REACT (VERY STRONG)
+MUST MASTER
+Core Concepts
+Virtual DOM
+Reconciliation
+Rendering cycle
+props vs state
+component lifecycle
+Hooks (MOST IMPORTANT)
+useState
+useEffect
+useRef
+useMemo
+useCallback
+useContext
+MUST CLEAR
+dependency array
+cleanup function
+infinite re-render
+stale closures
+unnecessary re-renders
+State Management
+Context API
+Zustand OR Redux Toolkit basics
+Routing & Auth
+protected routes
+auth flow
+token handling
+Performance
+React.memo
+lazy loading
+code splitting
+MOST ASKED
+useEffect lifecycle
+useMemo vs useCallback
+React fast kyun?
+optimization kaise?
+3. NEXT.JS (VERY STRONG)
+MUST MASTER
+App Router
+layouts
+nested routes
+dynamic routes
+Rendering
+SSR
+CSR
+SSG
+ISR
+MOST IMPORTANT
+Server Components vs Client Components
+Auth & Middleware
+route protection
+middleware
+cookies/JWT basics
+Data Fetching
+fetch()
+caching
+revalidation
+Performance
+next/image
+lazy loading
+hydration basics
+MOST ASKED
+Why Next.js?
+SSR vs CSR?
+hydration?
+server/client components?
+4. NODE.JS (VERY STRONG)
+MUST MASTER
+Event Loop (TOP PRIORITY)
+call stack
+callback queue
+microtask queue
+process.nextTick
+setTimeout
+promises execution order
+Async Programming
+promises
+async/await
+Promise.all
+Promise.race
+error handling
+Express
+routing
+middleware
+REST APIs
+validation
+JWT auth
+Production Concepts
+pagination
+caching basics
+rate limiting
+logging
+centralized error handling
+Performance
+event loop blocking
+CPU intensive tasks
+Redis basics
+MOST ASKED
+event loop explain
+Node single-threaded?
+middleware flow?
+JWT flow?
+Promise execution order?
+5. POSTGRESQL (VERY STRONG)
+MUST MASTER
+Queries
+CRUD
+filtering
+GROUP BY
+HAVING
+subqueries
+MOST IMPORTANT
+INNER JOIN
+LEFT JOIN
+multiple joins
+Indexing
+why indexes?
+indexing tradeoffs
+query optimization basics
+Transactions
+BEGIN
+COMMIT
+ROLLBACK
+ACID
+Relationships
+one-to-many
+many-to-many
+junction tables
+Pagination
+LIMIT OFFSET
+Security
+parameterized queries
+SQL injection prevention
+MOST ASKED
+joins
+indexing
+transactions
+optimize slow query
+TIER 2 — VERY IMPORTANT
+6. AUTHENTICATION & SECURITY
+MUST KNOW
+JWT flow
+access vs refresh token basics
+protected routes
+cookies vs localStorage
+bcrypt
+CORS
+Helmet
+rate limiting basics
+MOST ASKED
+
+“How auth works end-to-end?”
+
+7. APIs & BACKEND ARCHITECTURE
+MUST KNOW
+REST APIs
+API validation
+error handling
+pagination
+API structure
+status codes
+8. PRODUCTION THINKING (VERY IMPORTANT)
+
+THIS separates strong candidates.
+
+MUST KNOW
+Backend Slow?
+logs
+DB queries
+indexing
+caching
+CPU usage
+event loop blocking
+React App Slow?
+unnecessary renders
+bundle size
+API delays
+lazy loading
+LMS Scaling
+CDN
+Redis cache
+pagination
+load balancing
+DB optimization
+9. PROJECT EXPLANATION (SUPER IMPORTANT)
+
+You MUST confidently explain:
+
+architecture
+auth flow
+DB design
+API flow
+deployment
+optimization
+challenges
+scalability ideas
+
+Especially:
+
+LMS
+startup projects
+deployed apps
+TIER 3 — PRACTICAL PRODUCTION AWARENESS
+10. DOCKER (MEDIUM DEPTH)
+MUST KNOW
+Dockerfile
+images vs containers
+docker-compose
+volumes
+networking basics
+PRACTICAL
+
+Dockerize:
+
+frontend
+backend
+postgres
+MOST ASKED
+Why Docker?
+image vs container?
+Docker Compose?
+11. REDIS (BASIC TO MEDIUM)
+MUST KNOW
+why Redis?
+caching basics
+session storage
+rate limiting
+LMS Usage
+popular courses cache
+auth sessions
+TIER 4 — BASIC AWARENESS ONLY
+12. KUBERNETES (BASIC ONLY)
+ONLY KNOW
+pods
+deployments
+services
+scaling
+auto healing
+MOST ASKED
+Why Kubernetes?
+Docker vs Kubernetes?
+
+NO deep DevOps needed.
+
+13. AWS (BASIC ONLY)
+ONLY KNOW
+EC2
+S3
+RDS
+deployment architecture
+CDN basics
+MOST ASKED
+How deploy backend?
+Why S3?
+How scale app?
+
+NO advanced AWS needed.
+
+TIER 5 — BASIC BUT IMPORTANT
+14. GIT & GITHUB
+MUST KNOW
+branching
+merge conflicts
+pull requests
+15. DSA (BASIC TO MEDIUM)
+MUST KNOW
+arrays
+strings
+hashmap
+sorting
+recursion basics
+
+Enough for most startup interviews.
+
+MOST IMPORTANT INTERVIEW QUESTIONS TO MASTER
+FRONTEND
+useEffect lifecycle?
+React rendering?
+SSR vs CSR?
+server vs client components?
+optimization techniques?
+TYPESCRIPT
+interface vs type?
+any vs unknown?
+generics?
+utility types?
+typing React props?
+BACKEND
+event loop?
+middleware?
+JWT flow?
+Promise execution order?
+caching?
+DATABASE
+joins?
+indexing?
+transactions?
+optimization?
+PRODUCTION
+app slow ho gaya?
+scale kaise karoge?
+caching kaha use karoge?
+LMS architecture?
+FINAL PRIORITY ORDER
+MASTER DEEPLY
+TypeScript
+React
+Next.js
+Node.js
+PostgreSQL
+STRONG PRACTICAL
+Auth
+APIs
+Production optimization
+Docker
+BASIC AWARENESS
+Redis
+AWS
+Kubernetes

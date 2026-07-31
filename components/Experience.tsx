@@ -25,7 +25,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="relative py-24 lg:py-40 bg-[#030712] overflow-hidden">
+    <section id="experience" className="relative py-24 lg:py-40 bg-transparent overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>

@@ -23,7 +23,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-24 lg:py-40 px-4 bg-[#030712]">
+    <section id="about" className="relative py-24 lg:py-40 px-4 bg-transparent">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           

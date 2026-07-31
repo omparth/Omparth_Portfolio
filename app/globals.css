@@ -132,6 +132,13 @@
     @apply bg-gradient-to-r from-purple-400 via-indigo-500 to-cyan-400 bg-clip-text text-transparent;
   }
 
+
+  /* Custom Cursor Active on Desktop */
+@media (pointer: fine) {
+  body, a, button {
+    cursor: none !important;
+  }
+}
   .glass {
     @apply rounded-xl border border-white/10 bg-white/5 backdrop-blur-md;
   }
