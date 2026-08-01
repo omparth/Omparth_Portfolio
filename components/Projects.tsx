@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ArrowRight, Code, Sparkles, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Code, Sparkles, Code2 } from 'lucide-react';
 import { useRef } from 'react';
 
 export default function Projects() {
@@ -54,10 +54,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="flex flex-col items-center gap-3"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 backdrop-blur-md">
-              <Sparkles size={14} className="text-indigo-400" />
-              <span className="text-xs font-mono tracking-widest text-indigo-300 uppercase">Interactive Timeline</span>
-            </div>
+          
 
             <h2 className="text-5xl lg:text-7xl font-bold text-white tracking-tight">
               Featured <span className="text-gray-500 italic font-light">Artifacts.</span>
@@ -77,7 +74,7 @@ export default function Projects() {
             className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-cyan-400 hidden md:block"
           />
 
-          {/* 3. Pixel-Style Floating Icon Node (Follows Scroll Progress) */}
+          {/* 3. 3D Gradient Squircle Code Icon Node (Follows Scroll Progress) */}
           <motion.div
             style={{
               top: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
@@ -86,11 +83,14 @@ export default function Projects() {
           >
             <div className="relative flex items-center justify-center">
               {/* Outer Pulsing Glow Halo */}
-              <span className="animate-ping absolute inline-flex h-10 w-10 rounded-full bg-indigo-500/40 opacity-75" />
+              <span className="animate-ping absolute inline-flex h-12 w-12 rounded-[1.2rem] bg-indigo-500/30 opacity-75" />
 
-              {/* Pixel Art Node Container */}
-              <div className="relative h-10 w-10 rounded-full bg-[#0a0f1d] border border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.6)] backdrop-blur-md flex items-center justify-center text-indigo-300">
-                <Gamepad2 size={18} className="animate-pulse text-indigo-400" />
+              {/* 3D Gradient Squircle Container matching screenshot */}
+              <div className="relative h-11 w-11 rounded-[1.1rem] bg-gradient-to-br from-indigo-400 via-blue-600 to-purple-600 p-[1px] shadow-[0_0_25px_rgba(99,102,241,0.5)] flex items-center justify-center">
+                <div className="h-full w-full rounded-[1.05rem] bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 flex items-center justify-center shadow-inner">
+                  {/* White Bold Code Icon */}
+                  <Code2 size={22} className="text-white stroke-[2.5]" />
+                </div>
               </div>
             </div>
           </motion.div>
