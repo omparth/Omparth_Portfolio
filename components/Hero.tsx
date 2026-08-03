@@ -181,7 +181,7 @@ export default function Hero() {
 
                 {/* Pixel Monospace Description */}
                 <p className="font-mono text-gray-300 text-xs md:text-sm max-w-md mx-auto lg:mx-0 leading-relaxed tracking-wide border-l-2 border-purple-500/50 pl-3">
-                  &gt; Crafting high performance web applications with clean pixel aesthetics & seamless interactions.
+                  &gt; Full Stack & Mobile App Developer crafting high-performance web and mobile applications with exceptional user experiences.
                 </p>
               </div>
 
