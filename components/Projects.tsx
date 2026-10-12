@@ -36,6 +36,16 @@ export default function Projects() {
       color: 'from-cyan-500 to-blue-500',
       badge: 'Enterprise SaaS',
     },
+    {
+      title: 'Gami5',
+      subtitle: 'Interactive Gaming Platform',
+      description:
+        'Engineered responsive mini-games and dynamic game UI on a contract basis under tight deadlines, leveraging Pixi.js, React, and JavaScript for high-performance 2D canvas rendering and fluid user interactions.',
+      tags: ['React', 'Pixi.js', 'JavaScript', 'Game Dev', 'UI/UX'],
+      live: 'https://gami5.ai/',
+      color: 'from-amber-500 via-orange-500 to-rose-500',
+      badge: 'Game Dev / Contract',
+    },
   ];
 
   return (
